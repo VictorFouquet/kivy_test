@@ -1,0 +1,195 @@
+#:kivy 1.0
+
+<LoginWindow>:
+    name: "login"
+    email:email
+    password:password
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.95, 0.95, 0.95, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size 
+
+        
+
+        FloatLayout:
+            size_hint:0.4,0.8
+            pos_hint: {"x":0.3, "y":0.1}
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size 
+
+            Label:
+                text: "Connect"
+                bold:True
+                font_size:20
+                size_hint:1,0.15
+                pos_hint: {"x":0, "y":0.9}
+
+                canvas.before:
+                    Color:
+                        rgba: 68/255, 174/255, 212/255, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size 
+
+            Label:
+                text: "Email"
+                color: 0,0,0,1
+                size_hint:1,0.1
+                pos_hint: {"x":0, "y":0.7}
+
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size 
+
+
+            TextInput:
+                id:email
+                size_hint:0.6,0.1
+                pos_hint: {"x":0.2, "y":0.59}
+                multiline:False
+
+
+            Label:
+                text: "Password"
+                color: 0,0,0,1
+                size_hint:1,0.1
+                pos_hint: {"x":0, "y":0.45}
+
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size 
+
+
+            TextInput:
+                id:password
+                size_hint:0.6,0.1
+                pos_hint: {"x":0.2, "y":0.34}
+                multiline:False
+
+            Button:
+                size_hint:0.5,0.1
+                pos_hint: {"y": 0.15,"x":0.25}
+                text: "Submit"
+                on_release:
+                    root.login_btn()
+                    root.manager.transition.direction = "left"
+
+
+<P>:
+    close_btn:close_btn
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.95, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size 
+
+    Label:
+        text: "Invalid email or password"
+        color: 0,0,0,1
+        size_hint: 0.6, 0.2
+        pos_hint: { "x":0.2, "y":0.6 }
+
+    Button:
+        id:close_btn
+        text: "Close"
+        size_hint: 0.6, 0.15
+        pos_hint: { "x":0.2, "y":0.1 }
+
+
+<MainWindow>:
+    #usr_email: email
+    #created:created
+    conn_devices:conn_devices
+    name:"main"
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.95, 0.95, 0.95, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size 
+
+            
+        Label:
+            text: "Banc d'intégration"
+            bold:True
+            font_size:30
+            size_hint:0.4,0.1
+            pos_hint: {"x":0, "y":0.9}
+
+            canvas.before:
+                Color:
+                    rgba: 68/255, 174/255, 212/255, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size 
+
+        Label:
+            size_hint:0.3,0.1
+            pos_hint: {"x":0.4, "y":0.9}
+
+            canvas.before:
+                Color:
+                    rgba: 68/255, 174/255, 212/255, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size 
+
+        Label:
+            size_hint:0.3,0.01
+            pos_hint: {"x":0.7, "y":0.99}
+
+            canvas.before:
+                Color:
+                    rgba: 68/255, 174/255, 212/255, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size 
+
+        Label:
+            size_hint:0.3,0.01
+            pos_hint: {"x":0.7, "y":0.90}
+
+            canvas.before:
+                Color:
+                    rgba: 68/255, 174/255, 212/255, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size 
+
+        Label:
+            size_hint:0.02,0.1
+            pos_hint: {"x":0.98, "y":0.9}
+
+            canvas.before:
+                Color:
+                    rgba: 68/255, 174/255, 212/255, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size 
+
+        Button:
+            id:conn_devices
+            size_hint:0.28,0.08
+            text:"Connect Devices"
+            pos_hint: {"x":0.7, "y":0.91}
+            background_normal: ''
+            background_color: 132/255, 230/255, 1, 1
+
+
+
