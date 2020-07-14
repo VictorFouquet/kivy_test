@@ -115,6 +115,8 @@
     #usr_email: email
     #created:created
     conn_devices:conn_devices
+    dl_os:dl_os
+
     name:"main"
     FloatLayout:
         canvas.before:
@@ -191,5 +193,14 @@
             background_normal: ''
             background_color: 132/255, 230/255, 1, 1
 
+        Button:
+            id:dl_os
+            size_hint:0.28,0.08
+            text:"Download OS"
+            pos_hint: {"x":0.36, "y":0.5}
+            background_normal: ''
+            background_color: 132/255, 230/255, 1, 1
+            on_release:
+                root.download_os()
 
 

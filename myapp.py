@@ -1,4 +1,8 @@
 
+import platform
+import requests
+import os
+
 import kivy
 from kivy.app import App
 from kivy.lang import Builder
@@ -21,10 +25,31 @@ class P(FloatLayout):
 
 class MainWindow(Screen):
     conn_device = ObjectProperty(None)
+    dl_os = ObjectProperty(None)
 
-    def get_devices_list():
+    def get_devices_list(self):
         # Implement adb method
         pass
+
+    def download_os(self):
+        # Replace with adb method
+        path = os.getcwd()
+        user_os = platform.system()
+
+        dl_path = f"{path}/cache/pic1.jpg" if user_os == "Linux" else f"{path}\\cache\\pic1.jpg"
+
+        with open(dl_path, 'wb') as handle:
+                response = requests.get("https://live.staticflickr.com/7357/10471925145_60d4d52bb4_b.jpg", stream=True)
+
+                if not response.ok:
+                    print(response)
+
+                for block in response.iter_content(1024):
+                    if not block:
+                        break
+
+                    handle.write(block)
+
     '''
     usr_email = ObjectProperty(None)
     created = ObjectProperty(None)
@@ -67,7 +92,7 @@ screens = [LoginWindow(name="login"), MainWindow(name="main")]
 for screen in screens:
     sm.add_widget(screen)
 
-sm.current = "login"
+sm.current = "main"
 
 
 def invalid_login():
